@@ -8,7 +8,7 @@ routerProducts.get('/:id?', (req, res) => getProducts(req, res));
 //Agregar producto
 routerProducts.post('/', (req, res) => addProduct(req, res));
 
-//Borrar producto
+//Borrar product
 routerProducts.delete('/:id', (req, res) => deleteProduct(req, res));
 
 export default routerProducts;

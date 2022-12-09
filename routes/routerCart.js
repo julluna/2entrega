@@ -8,7 +8,7 @@ routerCarts.post('/', (req, res) => addCart(req, res));
 //Delete cart
 routerCarts.delete('/:id', (req, res) => deleteCart(req, res));
 
-//Get products form an specific cart
+//Get products
 routerCarts.get('/:id/products', (req, res) => getProducts(req, res));
 
 //Add a product to a cart

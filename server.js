@@ -1,4 +1,5 @@
 import express from "express";
+const { connect } = require("mongoose");
 import routerProducts from './routes/routerProducts.js';
 import routerCarts from './routes/routerCart.js';
 
@@ -11,6 +12,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/products', routerProducts);
 app.use('/api/cart', routerCarts);
 
+app.use('*', (req, res) => {
+	const path = req.params;
+	const method = req.method;
+	res.send({ error: -2, descripcion: `ruta '${path[0]}' método '${method}' no implementada` });
+});
 
-const server = app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
+
+const server = app.listen(PORT, async () => {
+	console.log(`Server running on PORT ${PORT}`);
+});
+
 server.on('error', err => console.log(err));
